@@ -24,7 +24,9 @@ from xlrd import open_workbook, cellname, xldate_as_tuple, \
     XL_CELL_ERROR, XL_CELL_BLANK, XL_CELL_EMPTY, error_text_from_code
 from xlwt import easyxf, Workbook
 from xlutils.copy import copy as copy
-from version import VERSION
+#from version import VERSION
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+execfile(os.path.join(THIS_DIR, 'version.py'))
 
 _version_ = VERSION
 
