@@ -18,9 +18,14 @@ import sys
 from distutils.core import setup
 from os.path import join, dirname
 
-sys.path.append(join(dirname(__file__), 'ExcelLibrary'))
+sys.path.append(join(dirname(__file__), 'src'))
+from ez_setup import use_setuptools
+use_setuptools()
+from setuptools import setup
 
-execfile(join(dirname(__file__), 'ExcelLibrary', 'version.py'))
+#sys.path.append(join(dirname(__file__), 'ExcelLibrary'))
+
+execfile(join(dirname(__file__), 'src', 'ExcelLibrary', 'version.py'))
 
 DESCRIPTION = """
 This test library provides some keywords to allow
@@ -34,7 +39,7 @@ setup(name              = 'robotframework-excellibrary',
       long_description  = DESCRIPTION,
       author            = 'jyrkiwahlstedt, Simon McMorran',
       author_email      = '<smcmorran@navinet.net>',
-      url               = 'https://github.com/NaviNet/robotframework-excellibrary',
+      url               = 'https://github.com/qitaos/robotframework-excellibrary',
       license           = 'Apache License 2.0',
       keywords          = 'robotframework testing testautomation excel',
       platforms         = 'any',
@@ -48,11 +53,13 @@ setup(name              = 'robotframework-excellibrary',
                               "Topic :: Software Development :: Quality Assurance"
                         ],
       install_requires  = [
-                                                      'robotframework >= 2.8.5',
-                                                      'xlutils >= 1.7.1',
-                                                      'natsort >= 3.3.0'
+                            'robotframework >= 2.8.5',
+                            'xlutils >= 1.7.1',
+                            'natsort >= 3.3.0'
                         ],
+      py_modules=['ez_setup'],
+      package_dir  = {'' : 'src'},
       packages          = ['ExcelLibrary'],
       data_files        = [('ExcelRobotTest', ['Tests/acceptance/ExcelRobotTest.txt', 'Tests/acceptance/ExcelRobotTest.xls', 'doc/ExcelLibrary-KeywordDocumentation.html', 'doc/ChangeLog.txt'])],
-      download_url      = 'https://github.com/NaviNet/robotframework-excellibrary/tarball/0.0.2',
+      download_url      = 'https://github.com/qitaos/robotframework-excellibrary/tarball/0.0.2',
       )
