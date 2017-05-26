@@ -534,6 +534,8 @@ class ExcelLibrary:
         | Save Excel           |  NewExcelRobotTest.xls                             |
 
         """
+        if not self.tb:
+            self.tb = copy(self.wb)
         if useTempDir is True:
             print '*DEBUG* Got fname %s' % filename
             self.tb.save(os.path.join("/", self.tmpDir, filename))
@@ -555,7 +557,7 @@ class ExcelLibrary:
         """
         workdir = os.getcwd()
         print '*DEBUG* Got fname %s' % filename
-        self.tb.save(os.path.join(workdir, filename))
+        self.save_excel(os.path.join(workdir, filename))
 
     def add_new_sheet(self, newsheetname):
         """
