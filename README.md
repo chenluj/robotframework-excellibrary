@@ -1,6 +1,10 @@
 robotframework-excellibrary for Robot Framework
 ==================================================
+# 修复说明
 
+修改了一下保存文件的方法，因为self.tb可能会出现none的情况。
+
+安装补丁的方法，下载tag为0.0.3的文件，然后使用 pip install 文件名 的方式安装。
 
 Introduction
 ------------
